@@ -19,9 +19,9 @@ class AuthController
                        ->first();
 
         if ($user) {
-            $data = ['status' => 'ok', 'mensaje' => 'Bienvenido', 'name' => $user];
+            $data = ['success' => true, 'status' => 'ok', 'mensaje' => 'Bienvenido', 'name' => $user];
         } else {
-            $data = ['status' => 'error', 'mensaje' => 'Usuario o Contraseña Incorrectas'];
+            $data = ['success' => false, 'status' => 'error', 'mensaje' => 'Usuario o Contraseña Incorrectas'];
         }
 
         $response->getBody()->write(json_encode($data));
